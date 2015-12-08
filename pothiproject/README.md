@@ -16,10 +16,12 @@ on	the	tweets	of	last	5	minutes.
 
 Run
 ====
-Run "python twitter_pothi_task.py"
+1. Run "python twitter_pothi_task.py"
 
-Now program ask some value (prompts)
+2. Now the program asks some values (prompts)
 
-Wait for the give time 
+3. Enter those values
 
-Collect the result in file "twitter_user_count.csv"
+4. Wait for the given time 
+
+5. Collect the result in the file "twitter_user_count.csv"
