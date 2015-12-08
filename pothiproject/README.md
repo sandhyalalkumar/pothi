@@ -14,6 +14,8 @@ Output
 After	starting,	every	1	minute,	program	should	print	following	reports	based
 on	the	tweets	of	last	5	minutes.
 
+Run
+====
 Run "python twitter_pothi_task.py"
 
 Now program ask some value (prompts)
