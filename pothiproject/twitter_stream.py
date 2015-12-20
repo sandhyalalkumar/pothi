@@ -2,10 +2,10 @@ from tweepy import Stream
 from tweepy import OAuthHandler
 from tweepy.streaming import StreamListener
 
-ckey = 'PEBSALWRo5SsRKTH2nLVi5hWi'
-csecret = '0cmd5RVjHXaFMyKtWtP1AXlML218Ru0oID6tcxfA0il5t51Zjz'
-atoken = '3857401812-2jEgTo3Vj6U6DO9AUXgsRRdJrro4FZz4fTI18Yr'
-asecret = 'f4BzWopX1v66sG0df6omGwRrMTPIN5ZgDsXynt5Pn7RHm'
+access_token ='3857401812-2jEgTo3Vj6U6DO9AUXgsRRdJrro4FZz4fTI18Yr' 
+access_token_secret = 'f4BzWopX1v66sG0df6omGwRrMTPIN5ZgDsXynt5Pn7RHm'
+consumer_key ='RdhuMu2XR0UyzE070GqP4HuUD'
+consumer_key_secret = 'RI6IyqmEjHnypiJwmAop4vESMOPKIRL9mIKqe89Gp05QsbUW3N'
 
 
 class listener(StreamListener):
@@ -19,9 +19,9 @@ class listener(StreamListener):
 		print status
 
 
-auth =  OAuthHandler(ckey, csecret)
-auth.set_access_token(atoken, asecret)
+auth =  OAuthHandler(consumer_key, consumer_key_secret)
+auth.set_access_token(access_token, access_token_secret)
 
 twitterStream = Stream(auth, listener())
-twitterStream.filter(track=["Car"])
+twitterStream.filter(track=["car"])
 

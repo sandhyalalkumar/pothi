@@ -15,14 +15,15 @@ consumer_key_secret = 'Rl6qRcfEd2XAiaZy0a0lQSHpEWxMaiwqIbJCvuoUO2HglXXi6f'
 
 class listener(StreamListener):
 
-	def __init__(self, start_time, time_limit=60):
+	def __init__(self, start_time, time_limit=[60,]):
 
 		self.time = start_time
 		self.limit = time_limit
 		self.tweet_data = []
 
 	def on_data(self, data):
-		while True:
+		for t in self.limit:
+			while True:
 			try:
 				self.tweet_data.append(data)
 
@@ -42,7 +43,7 @@ class listener(StreamListener):
 
 			except BaseException, e:
 				print 'Failed on data, ', str(e)
-		#print "New thing Started"
+		
 		user_tweets_count={}
 		for jdata in self.tweet_data:
 			d = json.loads(jdata)
@@ -65,7 +66,8 @@ class listener(StreamListener):
 		print status
 
 if __name__ == '__main__':
-	tim = raw_input( "Enter time in minutes:")
+	#tim = raw_input( "Enter time in minutes:")
+	tim = 5
 	n = raw_input("No of Keywords:")
 	n1 = int(n)
 	keywords_list = []
@@ -74,11 +76,11 @@ if __name__ == '__main__':
 		n1 = n1 - 1
 
 	print "************************************"
-	print "Please wait for %d minutes"%int(tim)
+	print "Please wait for %d minutes"%tim
 	print "************************************"
 
 	start_time = time.time()
-	listenObj = listener(start_time,60*int(tim))
+	listenObj = listener(start_time,[60,120,180,240,300])
 	authrize = OAuthHandler(consumer_key, consumer_key_secret)
 	authrize.set_access_token(access_token, access_token_secret)
 	new_stream = Stream(authrize,listenObj)
